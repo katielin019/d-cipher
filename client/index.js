@@ -1,3 +1,5 @@
 $(document).ready( () => {
-    let puz = "KZUCE QVJC DZEMCCA MZMOCMUE WOVAOCU EKCA V GCMOPAX VQE VW V DBVXZMQ GVAU JVMPSVGOPACA"
+    $("#analyze-cryptogram").click( () => {
+        var puzzle = $("#cryptogram").val();
+    });
 })
