@@ -5,22 +5,22 @@ $(document).ready( () => {
 
 // import Handlebars from "handlebars";
 
-function setup() {
-    var html = $('#cipher-template').innerHTML;
-    var template = Handlebars.compile(html);
-    var init, puzzle, key, compiled;
-    init = {};
+// function setup() {
+//     var html = $('#cipher-template').innerHTML;
+//     var template = Handlebars.compile(html);
+//     var init, puzzle, key, compiled;
+//     init = {};
 
-    $.getJSON("sample.json", function(data) {
-        puzzle = data.puzzle_string;
-        key = data.puzzle_key[0];
-        init = {puzzle_string: puzzle, puzzle_key: key};
-        compiled = template(init);
-        $('#cipher').innerHTML = compiled;
-    }).fail(function() {
-        alert("Error occured while loading the sample puzzle. Try refreshing the page.");
-    });
-}
+//     $.getJSON("sample.json", function(data) {
+//         puzzle = data.puzzle_string;
+//         key = data.puzzle_key[0];
+//         init = {puzzle_string: puzzle, puzzle_key: key};
+//         compiled = template(init);
+//         $('#cipher').innerHTML = compiled;
+//     }).fail(function() {
+//         alert("Error occured while loading the sample puzzle. Try refreshing the page.");
+//     });
+// }
 
 // // $(document).ready(() => {
 // //     var puzzle;

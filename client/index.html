@@ -6,20 +6,23 @@
     <link rel="stylesheet" href="bootstrap-grid.css">
     <link rel="stylesheet" href="styles.css">
     <title>d-cipher</title>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
-    <script type="text/javascript" src="index.js"></script>
 </head>
 <body>
     <div id="header">
         <h1>d-cipher</h1>
     </div>
     <div id="cipher"></div>
-    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script> -->
+    
     <script id="cipher-template" type="text/x-handlebars-template">
         <p>Encoded cipher: {{puzzle_string}} <br>Cipher key: {{puzzle_key}}</p>
     </script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="index.js"></script>
 </body>
+</html>
+
 <!-- <body>
     <div class="container">
         <div id="header" class="row">
@@ -71,4 +74,3 @@
             </div>
         </div>
 </body> -->
-</html>
