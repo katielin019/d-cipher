@@ -19,7 +19,17 @@ $(document).ready(() => {
     function renderPuzzle(puzzle_string) {
         $("#cipher-display").text(puzzle_string);
         freqs = calculateFrequencies(puzzle_string);
-        $("#results").text(JSON.stringify(freqs));
+        renderTable(freqs);
+        // $("#results").text(JSON.stringify(freqs));
+    }
+
+    function renderTable(frequencies) {
+        for (var key of Object.keys(frequencies)) {
+            var html;
+            html = "<tr>";
+            html += "<td>" + key + "</td><td>" + frequencies[key] + "</td></tr>";
+            $("#tbody").append(html);
+        }
     }
 
     function sortByFrequency() {
