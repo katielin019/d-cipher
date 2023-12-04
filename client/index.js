@@ -13,21 +13,21 @@ $(document).ready(() => {
     // Get puzzle input
     $("#read-puzzle").click( () => {
         puzzle_string = $("#puzzle-input").val().toUpperCase();
+        renderPuzzle(puzzle_string);
     });
 
     function renderPuzzle(puzzle_string) {
         $("#cipher-display").text(puzzle_string);
         freqs = calculateFrequencies(puzzle_string);
-        $("#frequencies").text(JSON.stringify(freqs));
-        $("#tips").text("The most frequent letters in the English language are ETAOIN");
+        $("#results").text(JSON.stringify(freqs));
+    }
 
-        // var words = puzzle_string.split();
-        
-        // words.forEach(function(word) {
-        //     for (var i = 0; i < word.length; i++) {
-        //         var currLetter = word.charAt(i);
-        //     }
-        // })
+    function sortByFrequency() {
+
+    }
+
+    function sortAlphabetically() {
+
     }
 
     // adapted from https://github.com/fidian/rumkin-cipher
