@@ -1,0 +1,33 @@
+{
+    "puzzle_string": "OJLV EGVVWMG ALZZ VGZC-FGVOTBXO LK CLNG VGXYKFV",
+    "puzzle_key": [
+        {
+            "A": "W",
+            "B": "U",
+            "C": "X",
+            "D": "F",
+            "E": "G",
+            "F": "C",
+            "G": "M",
+            "H": "J",
+            "I": "L",
+            "J": "D",
+            "K": "I",
+            "L": "Z",
+            "M": "E",
+            "N": "K",
+            "O": "Y",
+            "P": "S",
+            "Q": "P",
+            "R": "T",
+            "S": "V",
+            "T": "O",
+            "U": "B",
+            "V": "N",
+            "W": "A",
+            "X": "R",
+            "Y": "Q",
+            "Z": "H"
+        }
+    ]
+}
