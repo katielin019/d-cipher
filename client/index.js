@@ -17,7 +17,13 @@ $(document).ready(() => {
     });
 
     function renderPuzzle(puzzle_string) {
-        $("#cipher-display").text(puzzle_string);
+        var words = puzzle_string.split();
+        for (var i = 0; i < words.length; i++) {
+            var html = "<span class='word'>";
+            html += words[i] + "</span>";
+            $("#cipher-display").append(html);
+        }
+        // $("#cipher-display").text(puzzle_string);
         freqs = calculateFrequencies(puzzle_string);
         renderTable(freqs);
         // $("#results").text(JSON.stringify(freqs));
@@ -31,6 +37,9 @@ $(document).ready(() => {
             $("#tbody").append(html);
         }
     }
+
+ 
+
 
     function sortByFrequency() {
 
