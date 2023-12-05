@@ -3,36 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap-grid.css">
     <link rel="stylesheet" href="styles.css">
     <title>d-cipher</title>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script type="text/javascript" src="index.js"></script>
 </head>
 <body>
-    <div>
-        <h1>d-cipher</h1>
-    </div>
-    <div class="container">
-        <div id="solver-container" class="container">
-            <div id="cipher-display"></div>
-        </div>
-        <br/>
-        <div id="analysis-container" class="container">
-            <div class="row">
-                <div id="frequencies" class="col-sm"></div>
-                <div id="tips" class="col-sm"></div>
+    <div class="container-fluid">
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <h1>d-cipher</h1>
             </div>
         </div>
-        <br/>
-        <div id="input-container" class="container">
-            <textarea id="puzzle-input"
-                    name="input"
-                    placeholder="OJLV EGVVWMG..."
-                    cols="40"
-                    rows="3"
-                    required></textarea>
-            <br/>
-            <button id="read-puzzle">Run analysis!</button>
+    
+        <div class="container-fluid">
+            <!--solver container-->
+            <div class="row-fluid">
+                <div id="cipher-display"></div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-8 col-md-8 col-sm-8">
+                    <!--main content-->
+                    <div class="row">
+                        <h3>Solving tips</h3>
+                    </div>
+                    <div class="row">
+                        <h3>Input a cryptogram</h3>
+                    </div>
+                </div>
+                <div class="col-4 col-md-4 col-sm-4 sidebar">
+                    <!--right sidebar-->
+                    <h3>Frequency analysis</h3>
+                </div>
+            </div>
         </div>
     </div>
 </body>
