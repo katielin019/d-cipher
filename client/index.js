@@ -34,16 +34,18 @@ $(document).ready(() => {
     }
 
     function activateSolver(puzzle_string) {
-        var j, char, unique;
-        unique = [];
+        var c, letters, result;
+        result = "";
+        letters = new Set();
 
-        for (j = 0; j < puzzle_string.length; j++) {
-            char = puzzle_string.charAt(j)
-            if (ALPHA.includes(char) && !unique.includes(char)) {
-                unique.push(char);
+        for (i = 0; i < puzzle_string.length; i++) {
+            c = puzzle_string.charAt(i);
+            if (ALPHA.includes(c) && !letters.has(c)) {
+                letters.add(c);
             }
         }
-        return unique.toString();
+        result = [...letters].join(' ');
+        return result;
     }
 
     // adapted from https://github.com/fidian/rumkin-cipher

@@ -24,6 +24,13 @@ body {
     word-spacing: 8px;
 }
 
+#solver {
+    font-size: 36px;
+    letter-spacing: 6px;
+    line-height: 4;
+    text-align: center;
+}
+
 textarea {
     font-size: 16px;
 }
