@@ -3,39 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap-grid.css">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <title>d-cipher</title>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script type="text/javascript" src="index.js"></script>
 </head>
 <body>
-    <div class="jumbotron text-center">
-        <h1>d-cipher</h1>
-    </div>
-    <div class="container">
-        <div id="solver-container" class="container">
-            <div id="cipher-display"></div>
-        </div>
-        <br/>
-        <div id="analysis-container" class="container">
-            <div class="row">
-                <div id="frequencies" class="col-sm"></div>
-                <div id="tips" class="col-sm"></div>
+    <div class="container-fluid main">
+        <div class="container-fluid head">
+            <div class="row-fluid">
+                <h1>d-cipher</h1>
             </div>
         </div>
-        <br/>
-        <div id="input-container" class="container">
-            <textarea id="puzzle-input"
-                    name="input"
-                    placeholder="OJLV EGVVWMG..."
-                    cols="40"
-                    rows="3"
-                    required></textarea>
-            <br/>
-            <button id="read-puzzle">Run analysis!</button>
+    
+        <div class="container-fluid display">
+            <!--display container-->
+            <div class="row-fluid">
+                <div id="cipher-display"></div>
+                <br>
+                <div id="decoder-display"></div>
+            </div>
+        </div>
+
+        <div class="container-fluid solve">
+            <!--solver container-->
+            <div class="row-fluid">
+                <div class="solver" id="solver-txt"></div>
+                <div class="solver" id="solver-in">
+                    <textarea class="solver-inputs" id="letter-test-1" cols="1" rows="1" maxlength="1" autofocus></textarea>
+                    <textarea class="solver-inputs" id="letter-test-2" cols="1" rows="1" maxlength="1"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid analyze">
+            <!--analysis container-->
+            <div class="container">
+                <div class="row">
+                    <!--body-->
+                    <div class="col-8 col-md-8 col-sm-8">
+                        <!--panel 1-->
+                        <div class="row">
+                            <div class="col">
+                                <h3>Testing left-float main content</h3>
+                                This is inside
+                            </div>
+                        </div>
+
+                        <!--panel 2-->
+                        <div class="row">
+                            <div class="col">
+                                <h3>Testing left-float main content 2nd panel</h3>
+                                This is inside 2nd panel
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-4 col-md-4 col-sm-4">
+                        <!--sidebar-->
+                        <div class="row">
+                            <div class="col">
+                                <h3>Testing right-float sidebar</h3>
+                                This is inside sidebar
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
 </html>

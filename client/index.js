@@ -17,6 +17,15 @@ $(document).ready(() => {
 
     function renderPuzzle(puzzle_string) {
         $("#cipher-display").text(puzzle_string);
+        $("#decoder-display").text(puzzle_string);
+        let uniques = activateSolver(puzzle_string);
+        $("#solver-txt").text(uniques);
+
+        // hard coding this for now
+        for (i = 0; i < 18; i++) {
+
+        }
+
         freqs = calculateFrequencies(puzzle_string);
         $("#frequencies").text(JSON.stringify(freqs));
         $("#tips").text("The most frequent letters in the English language are ETAOIN");
@@ -28,6 +37,25 @@ $(document).ready(() => {
         //         var currLetter = word.charAt(i);
         //     }
         // })
+    }
+
+    function getLetterboxHTML(letter) {
+        var html = "<";
+    }
+
+    function activateSolver(puzzle_string) {
+        var c, letters, result;
+        result = "";
+        letters = new Set();
+
+        for (i = 0; i < puzzle_string.length; i++) {
+            c = puzzle_string.charAt(i);
+            if (ALPHA.includes(c) && !letters.has(c)) {
+                letters.add(c);
+            }
+        }
+        result = [...letters].join(' ');
+        return result;
     }
 
     // adapted from https://github.com/fidian/rumkin-cipher
