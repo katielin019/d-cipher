@@ -17,8 +17,8 @@
             </div>
         </div>
     
-        <div class="container-fluid">
-            <!--solver container-->
+        <div class="container-fluid display">
+            <!--display container-->
             <div class="row-fluid">
                 <div id="cipher-display"></div>
                 <br>
@@ -26,10 +26,20 @@
             </div>
         </div>
 
-        <div class="container-fluid">
+        <div class="container-fluid solve">
+            <!--solver container-->
+            <div class="row-fluid">
+                <div id="solver"></div>
+            </div>
+        </div>
+
+        <div class="container-fluid analyze">
+            <!--analysis container-->
             <div class="container">
                 <div class="row">
+                    <!--body-->
                     <div class="col-8 col-md-8 col-sm-8">
+                        <!--panel 1-->
                         <div class="row">
                             <div class="col">
                                 <h3>Testing left-float main content</h3>
@@ -37,6 +47,7 @@
                             </div>
                         </div>
 
+                        <!--panel 2-->
                         <div class="row">
                             <div class="col">
                                 <h3>Testing left-float main content 2nd panel</h3>
@@ -46,6 +57,7 @@
                     </div>
 
                     <div class="col-4 col-md-4 col-sm-4">
+                        <!--sidebar-->
                         <div class="row">
                             <div class="col">
                                 <h3>Testing right-float sidebar</h3>
@@ -53,36 +65,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-8 col-md-8 col-sm-8">
-                    <!--main content-->
-
-                    <div class="row">
-                        <h3>Solving tips</h3>
-                            <ul>
-                                <li>The most common letters in the English language are E, A, T, I, O, N</li>
-                                <li>Words containing a single letter are almost always A or I</li>
-                            </ul>
-                    </div>
-
-                    <div class="row">
-                        <h3>Input a cryptogram</h3>
-                        <div class="container">
-                            <textarea id="puzzle-input" name="input" placeholder="YOUR CRYPTOGRAM..." cols="40" rows="3" required></textarea>
-                        </div>
-                        <br/>
-                        <button id="read-puzzle">Run analysis</button>
-                    </div>
-                </div>
-
-                <div class="col-4 col-md-4 col-sm-4 sidebar">
-                    <!--right sidebar-->
-                    <h3>Frequency analysis</h3>
                 </div>
             </div>
         </div>

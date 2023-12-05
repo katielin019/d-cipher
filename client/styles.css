@@ -5,10 +5,10 @@ body {
 #cipher-display {
     background-color: black;
     color: #39FF14;
-    font-size: 32px;
+    font-size: 28px;
     font-weight: bold;
     letter-spacing: 1.2px;
-    line-height: 2.4;
+    line-height: 2;
     text-align: center;
     word-spacing: 8px;
 }
@@ -16,10 +16,10 @@ body {
 #decoder-display {
     background-color: #39FF14;
     color: black;
-    font-size: 32px;
+    font-size: 28px;
     font-weight: bold;
     letter-spacing: 1.2px;
-    line-height: 2.4;
+    line-height: 2;
     text-align: center;
     word-spacing: 8px;
 }
