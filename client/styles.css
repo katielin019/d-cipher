@@ -24,15 +24,23 @@ body {
     word-spacing: 8px;
 }
 
-#solver {
+textarea {
+    font-size: 16px;
+}
+
+.solver-inputs {
+    caret-color: transparent;
+    font-size: 36px;
+    resize: none;
+    text-align: center;
+    width: 40px;
+}
+
+.solver {
     font-size: 36px;
     letter-spacing: 6px;
     line-height: 4;
     text-align: center;
-}
-
-textarea {
-    font-size: 16px;
 }
 
 #read-puzzle {

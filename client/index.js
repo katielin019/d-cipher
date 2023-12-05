@@ -19,7 +19,13 @@ $(document).ready(() => {
         $("#cipher-display").text(puzzle_string);
         $("#decoder-display").text(puzzle_string);
         let uniques = activateSolver(puzzle_string);
-        $("#solver").text(uniques);
+        $("#solver-txt").text(uniques);
+
+        // hard coding this for now
+        for (i = 0; i < 18; i++) {
+
+        }
+
         freqs = calculateFrequencies(puzzle_string);
         $("#frequencies").text(JSON.stringify(freqs));
         $("#tips").text("The most frequent letters in the English language are ETAOIN");
@@ -31,6 +37,10 @@ $(document).ready(() => {
         //         var currLetter = word.charAt(i);
         //     }
         // })
+    }
+
+    function getLetterboxHTML(letter) {
+        var html = "<";
     }
 
     function activateSolver(puzzle_string) {
