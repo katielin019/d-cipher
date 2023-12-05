@@ -1,7 +1,6 @@
 $(document).ready(() => {
     var puzzle;
     var ALPHA = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-    
     // Load default puzzle
     $.getJSON("sample.json", function(data) {
         puzzle = data.puzzle_string;
@@ -20,7 +19,6 @@ $(document).ready(() => {
         $("#cipher-display").text(puzzle_string);
         $("#decoder-display").text(puzzle_string);
         var letterSet = activateSolver(puzzle_string);
-        alert("hi");
         // $("#solver-txt").text(uniques);
 
         var letterArr = Array.from(letterSet);
@@ -31,9 +29,9 @@ $(document).ready(() => {
             $('.label-row').append(label);
         });
 
-        freqs = calculateFrequencies(puzzle_string);
-        $("#frequencies").text(JSON.stringify(freqs));
-        $("#tips").text("The most frequent letters in the English language are ETAOIN");
+        // freqs = calculateFrequencies(puzzle_string);
+        // $("#frequencies").text(JSON.stringify(freqs));
+        // $("#tips").text("The most frequent letters in the English language are ETAOIN");
     }
 
     function getLabelHTML(letter) {
@@ -63,25 +61,24 @@ $(document).ready(() => {
         }
         // result = [...letters].join(' ');
         // return result;
-        alert(letters.size());
         return letters;
     }
 
-    // adapted from https://github.com/fidian/rumkin-cipher
-    function calculateFrequencies(puzzle_string) {
-        var c, i, result;
-        result = {};
+    // // adapted from https://github.com/fidian/rumkin-cipher
+    // function calculateFrequencies(puzzle_string) {
+    //     var c, i, result;
+    //     result = {};
 
-        for (i = 0; i < puzzle_string.length; i++) {
-            c = puzzle_string.charAt(i);
-            if (ALPHA.includes(c)) {
-                if (result[c]) {
-                    result[c] += 1;
-                } else {
-                    result[c] = 1;
-                }
-            }
-        }
-        return result;
-    }
+    //     for (i = 0; i < puzzle_string.length; i++) {
+    //         c = puzzle_string.charAt(i);
+    //         if (ALPHA.includes(c)) {
+    //             if (result[c]) {
+    //                 result[c] += 1;
+    //             } else {
+    //                 result[c] = 1;
+    //             }
+    //         }
+    //     }
+    //     return result;
+    // }
 });
