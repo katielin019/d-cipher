@@ -40,6 +40,7 @@ $(document).ready(() => {
     }
 
     function getLetterboxHTML(letter) {
+        // <td><textarea class="solver-inputs" id="Q" cols="1" rows="1" maxlength="1"></textarea></td>
         var html = "<";
     }
 

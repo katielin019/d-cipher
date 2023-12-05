@@ -2,30 +2,6 @@ body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-.letters {
-    margin: auto;
-}
-
-.letter {
-    font-size: 28px;
-    text-align: center;
-}
-
-td {
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
-.letterbox {
-    caret-color: transparent;
-    font-size: 32px;
-    resize: none;
-    text-align: center;
-    width: 36px;
-    border: solid #000;
-    border-width: 0.5px;
-}
-
 #cipher-display {
     background-color: black;
     color: #39FF14;
@@ -52,7 +28,21 @@ textarea {
     font-size: 16px;
 }
 
-.solver-inputs {
+.letters {
+    margin: auto;
+}
+
+.letter {
+    font-size: 28px;
+    text-align: center;
+}
+
+td {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.letterbox {
     caret-color: transparent;
     font-size: 36px;
     resize: none;
