@@ -10,8 +10,8 @@
     <script type="text/javascript" src="index.js"></script>
 </head>
 <body>
-    <div class="container-fluid">
-        <div class="container-fluid">
+    <div class="container-fluid main">
+        <div class="container-fluid head">
             <div class="row-fluid">
                 <h1>d-cipher</h1>
             </div>
@@ -21,6 +21,39 @@
             <!--solver container-->
             <div class="row-fluid">
                 <div id="cipher-display"></div>
+                <br>
+                <div id="decoder-display"></div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-8 col-md-8 col-sm-8">
+                        <div class="row">
+                            <div class="col">
+                                <h3>Testing left-float main content</h3>
+                                This is inside
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <h3>Testing left-float main content 2nd panel</h3>
+                                This is inside 2nd panel
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-4 col-md-4 col-sm-4">
+                        <div class="row">
+                            <div class="col">
+                                <h3>Testing right-float sidebar</h3>
+                                This is inside sidebar
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -28,13 +61,25 @@
             <div class="row">
                 <div class="col-8 col-md-8 col-sm-8">
                     <!--main content-->
+
                     <div class="row">
                         <h3>Solving tips</h3>
+                            <ul>
+                                <li>The most common letters in the English language are E, A, T, I, O, N</li>
+                                <li>Words containing a single letter are almost always A or I</li>
+                            </ul>
                     </div>
+
                     <div class="row">
                         <h3>Input a cryptogram</h3>
+                        <div class="container">
+                            <textarea id="puzzle-input" name="input" placeholder="YOUR CRYPTOGRAM..." cols="40" rows="3" required></textarea>
+                        </div>
+                        <br/>
+                        <button id="read-puzzle">Run analysis</button>
                     </div>
                 </div>
+
                 <div class="col-4 col-md-4 col-sm-4 sidebar">
                     <!--right sidebar-->
                     <h3>Frequency analysis</h3>

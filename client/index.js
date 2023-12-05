@@ -17,6 +17,7 @@ $(document).ready(() => {
 
     function renderPuzzle(puzzle_string) {
         $("#cipher-display").text(puzzle_string);
+        $("#decoder-display").text(puzzle_string);
         freqs = calculateFrequencies(puzzle_string);
         $("#frequencies").text(JSON.stringify(freqs));
         $("#tips").text("The most frequent letters in the English language are ETAOIN");
