@@ -70,6 +70,22 @@ $(document).ready(() => {
 
     function updateView(substitutions) {
         // alert(substitutions);
+        let currStr = $("#decoder-display").html();
+        var result = "";
+        // alert(currentSolveState);
+        for (i=0; i < currStr.length; i++) {
+            let c = currStr.charAt(i);
+            if (ALPHA.includes(c)) {
+                if (substitutions[c]) {
+                    result += substitutions[c];
+                } else {
+                    result += c;
+                }
+            } else {
+                result += c;
+            }
+        }
+        $("#decoder-display").text(result);
     }
 
     function resetView() {
