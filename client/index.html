@@ -32,28 +32,30 @@
 
         <div class="container-fluid solve">
             <!--solver container-->
-            <div class="row-fluid">
+            <div class="row">
                 <table class="letters">
-                     <!--hardcoded word component-->
-                    <tr class="input-row">
-                        <td><textarea class="letterbox" id="Q" cols="1" rows="1" maxlength="1" autofocus></textarea></td>
-                        <!-- <td><textarea class="letterbox" id="H" cols="1" rows="1" maxlength="1"></textarea></td>
-                        <td><textarea class="letterbox" id="J" cols="1" rows="1" maxlength="1"></textarea></td>
-                        <td><textarea class="letterbox" id="W" cols="1" rows="1" maxlength="1"></textarea></td>
-                        <td><textarea class="letterbox" id="G" cols="1" rows="1" maxlength="1"></textarea></td>
-                        <td><textarea class="letterbox" id="U" cols="1" rows="1" maxlength="1"></textarea></td>
-                        <td><textarea class="letterbox" id="L" cols="1" rows="1" maxlength="1"></textarea></td> -->
-                    </tr>
-                    <tr class="label-row">
-                        <td class="letter">Q</td>
-                        <!-- <td class="letter">H</td>
-                        <td class="letter">J</td>
-                        <td class="letter">W</td>
-                        <td class="letter">G</td>
-                        <td class="letter">U</td>
-                        <td class="letter">L</td> -->
-                    </tr>
-                </table>
+                    <!--hardcoded word component-->
+                   <tr class="input-row-1">
+                       <!-- <td><textarea class="letterbox" id="Q" cols="1" rows="1" maxlength="1" autofocus></textarea></td> -->
+                       <!-- <td><textarea class="letterbox" id="H" cols="1" rows="1" maxlength="1"></textarea></td>
+                       <td><textarea class="letterbox" id="J" cols="1" rows="1" maxlength="1"></textarea></td>
+                       <td><textarea class="letterbox" id="W" cols="1" rows="1" maxlength="1"></textarea></td>
+                       <td><textarea class="letterbox" id="G" cols="1" rows="1" maxlength="1"></textarea></td>
+                       <td><textarea class="letterbox" id="U" cols="1" rows="1" maxlength="1"></textarea></td>
+                       <td><textarea class="letterbox" id="L" cols="1" rows="1" maxlength="1"></textarea></td> -->
+                   </tr>
+                   <tr class="label-row-1">
+                       <!-- <td class="letter">Q</td> -->
+                       <!-- <td class="letter">H</td>
+                       <td class="letter">J</td>
+                       <td class="letter">W</td>
+                       <td class="letter">G</td>
+                       <td class="letter">U</td>
+                       <td class="letter">L</td> -->
+                   </tr>
+                   <tr class="input-row-2"></tr>
+                   <tr class="label-row-2"></tr>
+               </table>
             </div>
         </div>
         <br />
@@ -75,8 +77,10 @@
                         <!--panel 2-->
                         <div class="row">
                             <div class="col">
-                                <h3>Testing left-float main content 2nd panel</h3>
-                                This is inside 2nd panel
+                                <h3>puzzle:</h3>
+                                <textarea id="puzzle-input" name="input" cols="40" rows="3" required></textarea>
+                                <br/>
+                                <button id="read-puzzle">Run d-cipher</button>
                             </div>
                         </div>
                     </div>
