@@ -12,11 +12,14 @@ $(document).ready(() => {
     // Get puzzle input
     $("#read-puzzle").click( () => {
         puzzle_string = $("#puzzle-input").val().toUpperCase();
+        renderPuzzle(puzzle_string);
     });
 
     function renderPuzzle(puzzle_string) {
         $("#cipher-display").text(puzzle_string);
         $("#decoder-display").text(puzzle_string);
+
+        resetView();
 
         var letterSet = activateSolver(puzzle_string);
         var letterArr = Array.from(letterSet);
@@ -48,6 +51,14 @@ $(document).ready(() => {
             $(".freq-table").append(row + tableContent);
         })
         
+    }
+
+    function resetView() {
+        $('.input-row-1').empty();
+        $('.input-row-2').empty();
+        $('.label-row-1').empty();
+        $('.label-row-2').empty();
+        $(".freq-table").empty();
     }
 
     function getLabelHTML(letter) {
