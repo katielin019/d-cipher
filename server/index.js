@@ -13,14 +13,27 @@ app.use(cors({
 }));
 
 var charFreqs = [];
+var charSum;
 var bigrams = [];
+var bigramSum;
 var trigrams = [];
+var trigramSum;
 
-// URL: /letterFreq?letter=A
-app.get('/letterFreq', (req, res) => {
-	const letter = req.query.letter;
-	const freq = 
-	res.send('GET: Hello world!');
+// URL: localhost:3002/letterFreq/a
+app.get('/letterFreq/:letter', (req, res) => {
+	const char = req.params.letter;
+	let pos = charFreqs.findIndex(((obj) => obj.unigram === char));
+	console.log(pos);
+
+	let count = charFreqs[pos].freq;
+	let frequency = (count / charSum) * 100;
+
+	res.send(`Letter: ${char} is rank ${pos} of 26 with a frequency of ${frequency}%.`);
+
+	// const obj = charFreqs.find((obj) => obj.unigram === char);
+	// console.log(obj);
+	// var freq = (obj.freq / charSum) * 100;
+	// res.send(freq);
 });
 
 app.post('/', (req, res) => {
@@ -39,7 +52,11 @@ app.listen(port, () => {
 	let rawData;
 	rawData = fs.readFileSync('./data/english_1grams.json');
 	charFreqs = JSON.parse(rawData);
+	charSum = charFreqs.reduce(function(sum, charObj) {
+		return sum + charObj.freq;
+	}, 0);
 	console.log('charFreqs populated; count = ', charFreqs.length);
+	console.log('charSum = ', charSum);
 
 	rawData = fs.readFileSync('./data/english_2grams.json');
 	bigrams = JSON.parse(rawData);
