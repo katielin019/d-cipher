@@ -19,21 +19,17 @@ var bigramSum;
 var trigrams = [];
 var trigramSum;
 
+// MUST BE LOWERCASE
 // URL: localhost:3002/letterFreq/a
 app.get('/letterFreq/:letter', (req, res) => {
 	const char = req.params.letter;
 	let pos = charFreqs.findIndex(((obj) => obj.unigram === char));
-	console.log(pos);
 
 	let count = charFreqs[pos].freq;
 	let frequency = (count / charSum) * 100;
+	frequency = frequency.toFixed(3);
 
 	res.send(`Letter: ${char} is rank ${pos} of 26 with a frequency of ${frequency}%.`);
-
-	// const obj = charFreqs.find((obj) => obj.unigram === char);
-	// console.log(obj);
-	// var freq = (obj.freq / charSum) * 100;
-	// res.send(freq);
 });
 
 app.post('/', (req, res) => {
@@ -55,16 +51,16 @@ app.listen(port, () => {
 	charSum = charFreqs.reduce(function(sum, charObj) {
 		return sum + charObj.freq;
 	}, 0);
-	console.log('charFreqs populated; count = ', charFreqs.length);
-	console.log('charSum = ', charSum);
+	// console.log('charFreqs populated; count = ', charFreqs.length);
+	// console.log('charSum = ', charSum);
 
 	rawData = fs.readFileSync('./data/english_2grams.json');
 	bigrams = JSON.parse(rawData);
-	console.log('bigrams populated; count = ', bigrams.length);
+	// console.log('bigrams populated; count = ', bigrams.length);
 
 	rawData = fs.readFileSync('./data/english_3grams.json');
 	trigrams = JSON.parse(rawData);
-	console.log('trigrams populated; count = ', trigrams.length);
+	// console.log('trigrams populated; count = ', trigrams.length);
 
 
 	console.log('Listening on port ', port);
