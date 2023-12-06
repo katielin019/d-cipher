@@ -14,6 +14,7 @@ $(document).ready(() => {
         puzzle_string = $("#puzzle-input").val().toUpperCase();
         renderPuzzle(puzzle_string);
     });
+    
 
     function renderPuzzle(puzzle_string) {
         $("#cipher-display").text(puzzle_string);
@@ -50,7 +51,25 @@ $(document).ready(() => {
             var tableContent = key + "</td><td>" + freqs[key] + "</td></tr>";
             $(".freq-table").append(row + tableContent);
         })
-        
+
+        initializeEvents(letterArr);
+    }
+
+    function initializeEvents(letters) {
+        $('.letterbox').on('keyup', function() {
+            var substitutions = {};
+            for (i=0; i < letters.length; i++) {
+                if ($(`#${letters[i]}`).val()) {
+                    let c = letters[i]
+                    substitutions[c] = $(`#${letters[i]}`).val();
+                }
+            }
+            updateView(substitutions);
+        })
+    }
+
+    function updateView(substitutions) {
+        // alert(substitutions);
     }
 
     function resetView() {
@@ -76,8 +95,6 @@ $(document).ready(() => {
 
     function activateSolver(puzzle_string) {
         var c, letters;
-        // var c, letters, result;
-        // result = "";
         letters = new Set();
 
         for (i = 0; i < puzzle_string.length; i++) {
@@ -86,8 +103,6 @@ $(document).ready(() => {
                 letters.add(c);
             }
         }
-        // result = [...letters].join(' ');
-        // return result;
         return letters;
     }
 
