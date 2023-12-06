@@ -10,69 +10,97 @@ $(document).ready(() => {
         alert("Error occured while loading the sample puzzle. Try refreshing the page.");
     });
 
-    // Get puzzle input
-    $("#read-puzzle").click( () => {
-        puzzle_string = $("#puzzle-input").val().toUpperCase();
-    });
+    // // Get puzzle input
+    // $("#read-puzzle").click( () => {
+    //     puzzle_string = $("#puzzle-input").val().toUpperCase();
+    // });
 
     function renderPuzzle(puzzle_string) {
         $("#cipher-display").text(puzzle_string);
         $("#decoder-display").text(puzzle_string);
-        let uniques = activateSolver(puzzle_string);
-        $("#solver-txt").text(uniques);
+        var letterSet = activateSolver(puzzle_string);
+        // $("#solver-txt").text(uniques);
 
-        // hard coding this for now
-        for (i = 0; i < 18; i++) {
+        var letterArr = Array.from(letterSet);
+        var box, label, c;
 
+        for (i = 0; i < letterArr.length; i++) {
+            c = letterArr[i];
+            label = getLabelHTML(c);
+
+            if (i == 0) {
+                // <td><textarea class="letterbox" id="Q" cols="1" rows="1" maxlength="1" autofocus></textarea></td>
+                box = getLetterboxHTML(c, 'autofocus');
+                $('.input-row-1').append(box);
+                $('.label-row-1').append(label);
+            } else if (i < 13) {
+                box = getLetterboxHTML(c);
+                $('.input-row-1').append(box);
+                $('.label-row-1').append(label);
+            } else {
+                box = getLetterboxHTML(c);
+                $('.input-row-2').append(box);
+                $('.label-row-2').append(label);
+            }
         }
 
-        freqs = calculateFrequencies(puzzle_string);
-        $("#frequencies").text(JSON.stringify(freqs));
-        $("#tips").text("The most frequent letters in the English language are ETAOIN");
+        // letterArr.forEach(function(letter) {
+        //     let box = getLetterboxHTML(letter);
+        //     $('.input-row-1').append(box);
+        //     let label = getLabelHTML(letter);
+        //     $('.label-row-1').append(label);
+        // });
 
-        // var words = puzzle_string.split();
-        
-        // words.forEach(function(word) {
-        //     for (var i = 0; i < word.length; i++) {
-        //         var currLetter = word.charAt(i);
-        //     }
-        // })
+        // freqs = calculateFrequencies(puzzle_string);
+        // $("#frequencies").text(JSON.stringify(freqs));
+        // $("#tips").text("The most frequent letters in the English language are ETAOIN");
     }
 
-    function getLetterboxHTML(letter) {
-        var html = "<";
+    function getLabelHTML(letter) {
+        // <td class="letter">Q</td>
+        var htmlOpen = "<td class='letter'>";
+        var htmlClose = "</td>";
+        return htmlOpen + letter + htmlClose;
+    }
+
+    function getLetterboxHTML(letter, optional_attr='') {
+        var htmlOpen = "<td><textarea class='letterbox' id='";
+        var htmlClose = "' cols='1' rows='1' maxlength='1'" + optional_attr + "></textarea></td>";
+        return htmlOpen + letter + htmlClose;
     }
 
     function activateSolver(puzzle_string) {
-        var c, letters, result;
-        result = "";
+        var c, letters;
+        // var c, letters, result;
+        // result = "";
         letters = new Set();
 
         for (i = 0; i < puzzle_string.length; i++) {
             c = puzzle_string.charAt(i);
-            if (ALPHA.includes(c) && !letters.has(c)) {
+            if (ALPHA.includes(c)) {
                 letters.add(c);
             }
         }
-        result = [...letters].join(' ');
-        return result;
+        // result = [...letters].join(' ');
+        // return result;
+        return letters;
     }
 
-    // adapted from https://github.com/fidian/rumkin-cipher
-    function calculateFrequencies(puzzle_string) {
-        var c, i, result;
-        result = {};
+    // // adapted from https://github.com/fidian/rumkin-cipher
+    // function calculateFrequencies(puzzle_string) {
+    //     var c, i, result;
+    //     result = {};
 
-        for (i = 0; i < puzzle_string.length; i++) {
-            c = puzzle_string.charAt(i);
-            if (ALPHA.includes(c)) {
-                if (result[c]) {
-                    result[c] += 1;
-                } else {
-                    result[c] = 1;
-                }
-            }
-        }
-        return result;
-    }
+    //     for (i = 0; i < puzzle_string.length; i++) {
+    //         c = puzzle_string.charAt(i);
+    //         if (ALPHA.includes(c)) {
+    //             if (result[c]) {
+    //                 result[c] += 1;
+    //             } else {
+    //                 result[c] = 1;
+    //             }
+    //         }
+    //     }
+    //     return result;
+    // }
 });

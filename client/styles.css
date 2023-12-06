@@ -25,10 +25,25 @@ body {
 }
 
 textarea {
-    font-size: 16px;
+    font-size: 18px;
+    resize: none;
 }
 
-.solver-inputs {
+.letters {
+    margin: auto;
+}
+
+.letter {
+    font-size: 28px;
+    text-align: center;
+}
+
+td {
+    padding-left: 18px;
+    padding-right: 18px;
+}
+
+.letterbox {
     caret-color: transparent;
     font-size: 36px;
     resize: none;
@@ -39,7 +54,7 @@ textarea {
 .solver {
     font-size: 36px;
     letter-spacing: 6px;
-    line-height: 4;
+    line-height: 2em;
     text-align: center;
 }
 

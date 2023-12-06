@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script type="text/javascript" src="index.js"></script>
 </head>
+
 <body>
     <div class="container-fluid main">
         <div class="container-fluid head">
@@ -16,7 +18,7 @@
                 <h1>d-cipher</h1>
             </div>
         </div>
-    
+
         <div class="container-fluid display">
             <!--display container-->
             <div class="row-fluid">
@@ -25,37 +27,48 @@
                 <div id="decoder-display"></div>
             </div>
         </div>
+        <br />
+        <br />
 
         <div class="container-fluid solve">
             <!--solver container-->
-            <div class="row-fluid">
-                <div class="solver" id="solver-txt"></div>
-                <div class="solver" id="solver-in">
-                    <textarea class="solver-inputs" id="letter-test-1" cols="1" rows="1" maxlength="1" autofocus></textarea>
-                    <textarea class="solver-inputs" id="letter-test-2" cols="1" rows="1" maxlength="1"></textarea>
-                </div>
+            <div class="row">
+                <table class="letters">
+                   <tr class="input-row-1"></tr>
+                   <tr class="label-row-1"></tr>
+                   <tr class="input-row-2"></tr>
+                   <tr class="label-row-2"></tr>
+               </table>
             </div>
         </div>
+        <br/>
+        <br/>
+        <br/>
 
         <div class="container-fluid analyze">
             <!--analysis container-->
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row">
                     <!--body-->
                     <div class="col-8 col-md-8 col-sm-8">
                         <!--panel 1-->
                         <div class="row">
-                            <div class="col">
-                                <h3>Testing left-float main content</h3>
+                            <div class="col-12">
+                                <h3>Solving tips</h3>
                                 This is inside
                             </div>
                         </div>
+                        <br/>
+                        <br/>
 
                         <!--panel 2-->
                         <div class="row">
-                            <div class="col">
-                                <h3>Testing left-float main content 2nd panel</h3>
-                                This is inside 2nd panel
+                            <div class="col-12">
+                                <h3>puzzle:</h3>
+                                <textarea id="puzzle-input" name="input" cols="40" rows="3" required></textarea>
+                                <br/>
+                                <br/>
+                                <button id="read-puzzle">Run d-cipher</button>
                             </div>
                         </div>
                     </div>
@@ -74,4 +87,5 @@
         </div>
     </div>
 </body>
+
 </html>
