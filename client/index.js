@@ -4,23 +4,25 @@ $(document).ready(() => {
     // Load default puzzle
     $.getJSON("sample.json", function(data) {
         puzzle = data.puzzle_string;
-        // var key = data.puzzle_key[0];
         renderPuzzle(puzzle);
     }).fail(function() {
         alert("Error occured while loading the sample puzzle. Try refreshing the page.");
     });
 
-    // // Get puzzle input
-    // $("#read-puzzle").click( () => {
-    //     puzzle_string = $("#puzzle-input").val().toUpperCase();
-    // });
+    // Get puzzle input
+    $("#read-puzzle").click( () => {
+        puzzle_string = $("#puzzle-input").val().toUpperCase();
+        renderPuzzle(puzzle_string);
+    });
+    
 
     function renderPuzzle(puzzle_string) {
         $("#cipher-display").text(puzzle_string);
         $("#decoder-display").text(puzzle_string);
-        var letterSet = activateSolver(puzzle_string);
-        // $("#solver-txt").text(uniques);
 
+        resetView();
+
+        var letterSet = activateSolver(puzzle_string);
         var letterArr = Array.from(letterSet);
         var box, label, c;
 
@@ -29,7 +31,6 @@ $(document).ready(() => {
             label = getLabelHTML(c);
 
             if (i == 0) {
-                // <td><textarea class="letterbox" id="Q" cols="1" rows="1" maxlength="1" autofocus></textarea></td>
                 box = getLetterboxHTML(c, 'autofocus');
                 $('.input-row-1').append(box);
                 $('.label-row-1').append(label);
@@ -44,16 +45,55 @@ $(document).ready(() => {
             }
         }
 
-        // letterArr.forEach(function(letter) {
-        //     let box = getLetterboxHTML(letter);
-        //     $('.input-row-1').append(box);
-        //     let label = getLabelHTML(letter);
-        //     $('.label-row-1').append(label);
-        // });
+        freqs = calculateFrequencies(puzzle_string);
+        var row = "<tr><td>";
+        Object.keys(freqs).forEach(key => {
+            var tableContent = key + "</td><td>" + freqs[key] + "</td></tr>";
+            $(".freq-table").append(row + tableContent);
+        })
 
-        // freqs = calculateFrequencies(puzzle_string);
-        // $("#frequencies").text(JSON.stringify(freqs));
-        // $("#tips").text("The most frequent letters in the English language are ETAOIN");
+        initializeEvents(letterArr);
+    }
+
+    function initializeEvents(letters) {
+        $('.letterbox').on('keyup', function() {
+            var substitutions = {};
+            for (i=0; i < letters.length; i++) {
+                if ($(`#${letters[i]}`).val()) {
+                    let c = letters[i]
+                    substitutions[c] = $(`#${letters[i]}`).val();
+                }
+            }
+            updateView(substitutions);
+        })
+    }
+
+    function updateView(substitutions) {
+        // alert(substitutions);
+        let currStr = $("#decoder-display").html();
+        var result = "";
+        // alert(currentSolveState);
+        for (i=0; i < currStr.length; i++) {
+            let c = currStr.charAt(i);
+            if (ALPHA.includes(c)) {
+                if (substitutions[c]) {
+                    result += substitutions[c];
+                } else {
+                    result += c;
+                }
+            } else {
+                result += c;
+            }
+        }
+        $("#decoder-display").text(result);
+    }
+
+    function resetView() {
+        $('.input-row-1').empty();
+        $('.input-row-2').empty();
+        $('.label-row-1').empty();
+        $('.label-row-2').empty();
+        $(".freq-table").empty();
     }
 
     function getLabelHTML(letter) {
@@ -71,8 +111,6 @@ $(document).ready(() => {
 
     function activateSolver(puzzle_string) {
         var c, letters;
-        // var c, letters, result;
-        // result = "";
         letters = new Set();
 
         for (i = 0; i < puzzle_string.length; i++) {
@@ -81,26 +119,24 @@ $(document).ready(() => {
                 letters.add(c);
             }
         }
-        // result = [...letters].join(' ');
-        // return result;
         return letters;
     }
 
     // // adapted from https://github.com/fidian/rumkin-cipher
-    // function calculateFrequencies(puzzle_string) {
-    //     var c, i, result;
-    //     result = {};
+    function calculateFrequencies(puzzle_string) {
+        var c, i, result;
+        result = {};
 
-    //     for (i = 0; i < puzzle_string.length; i++) {
-    //         c = puzzle_string.charAt(i);
-    //         if (ALPHA.includes(c)) {
-    //             if (result[c]) {
-    //                 result[c] += 1;
-    //             } else {
-    //                 result[c] = 1;
-    //             }
-    //         }
-    //     }
-    //     return result;
-    // }
+        for (i = 0; i < puzzle_string.length; i++) {
+            c = puzzle_string.charAt(i);
+            if (ALPHA.includes(c)) {
+                if (result[c]) {
+                    result[c] += 1;
+                } else {
+                    result[c] = 1;
+                }
+            }
+        }
+        return result;
+    }
 });
