@@ -38,6 +38,15 @@ textarea {
     text-align: center;
 }
 
+table.freq-table {
+    border: 1px solid;
+}
+
+table.freq-table td {
+    font-size: 18px;
+    border: 1px solid;
+}
+
 td {
     padding-left: 18px;
     padding-right: 18px;
