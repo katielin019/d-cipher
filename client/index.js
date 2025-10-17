@@ -2,18 +2,31 @@ $(document).ready(() => {
     var puzzle;
     var ALPHA = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
     // Load default puzzle
-    $.getJSON("sample.json", function(data) {
-        puzzle = data.puzzle_string;
-        renderPuzzle(puzzle);
-    }).fail(function() {
-        alert("Error occured while loading the sample puzzle. Try refreshing the page.");
-    });
+    const json = loadJSON("sample.json");
+    console.log(json);
+    puzzle = json.puzzle_string;
+    console.log(puzzle);
+    renderPuzzle(puzzle);
+    // $.getJSON("sample.json", function(data) {
+    //     puzzle = data.puzzle_string;
+    //     renderPuzzle(puzzle);
+    // }).fail(function() {
+    //     alert("Error occured while loading the sample puzzle. Try refreshing the page.");
+    // });
 
     // Get puzzle input
     $("#read-puzzle").click( () => {
         puzzle_string = $("#puzzle-input").val().toUpperCase();
         renderPuzzle(puzzle_string);
     });
+
+    async function loadJSON(url) {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`HTTP error. Status: ${response.status}`);
+        }
+        return await response.json();
+    }
     
 
     function renderPuzzle(puzzle_string) {
