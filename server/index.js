@@ -1,23 +1,24 @@
 'use strict';
 
-const express = require('express');
-const fs = require('fs');
-const cors = require('cors');
+import express, { json } from 'express';
+import { readFileSync } from 'fs';
+import cors from 'cors';
 
 const app = express();
 const port = 3002;
 
-app.use(express.json());
+app.use(json());
+
 app.use(cors({
 	origin: 'http://localhost:3000'
 }));
 
-var charFreqs = [];
-var charSum;
-var bigrams = [];
-var bigramSum;
-var trigrams = [];
-var trigramSum;
+let charFreqs = [];
+let charSum;
+let bigrams = [];
+let bigramSum;
+let trigrams = [];
+let trigramSum;
 
 // MUST BE LOWERCASE
 // URL: localhost:3002/letterFreq/a
@@ -46,7 +47,7 @@ app.delete('/', (req, res) => {
 
 app.listen(port, () => {
 	let rawData;
-	rawData = fs.readFileSync('./data/english_1grams.json');
+	rawData = readFileSync('./data/english_1grams.json');
 	charFreqs = JSON.parse(rawData);
 	charSum = charFreqs.reduce(function(sum, charObj) {
 		return sum + charObj.freq;
@@ -54,11 +55,11 @@ app.listen(port, () => {
 	// console.log('charFreqs populated; count = ', charFreqs.length);
 	// console.log('charSum = ', charSum);
 
-	rawData = fs.readFileSync('./data/english_2grams.json');
+	rawData = readFileSync('./data/english_2grams.json');
 	bigrams = JSON.parse(rawData);
 	// console.log('bigrams populated; count = ', bigrams.length);
 
-	rawData = fs.readFileSync('./data/english_3grams.json');
+	rawData = readFileSync('./data/english_3grams.json');
 	trigrams = JSON.parse(rawData);
 	// console.log('trigrams populated; count = ', trigrams.length);
 
